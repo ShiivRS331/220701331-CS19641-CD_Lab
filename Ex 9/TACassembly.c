@@ -44,7 +44,7 @@ void generateAssembly(char *tac) {
         printf("MOV AX, [%s]\n", op1);
         printf("MOV [%s], AX\n", lhs);
     } else {
-        printf("; Unsupported TAC format: %s\n", tac);
+        printf(" Unsupported TAC format: %s\n", tac);
     }
 }
 
