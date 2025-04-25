@@ -14,7 +14,8 @@ int count = 0;
 // Parse each line into TAC format
 void parse(char *line) {
     sscanf(line, "%s = %s %s %s", code[count].lhs, code[count].op1, code[count].op, code[count].op2);
-    if (strlen(code[count].op) == 0) strcpy(code[count].op2, "");
+    if (strlen(code[count].op) == 0) 
+        strcpy(code[count].op2, "");
     code[count].isUsed = 0;
     count++;
 }
@@ -37,9 +38,7 @@ void copyPropagation() {
 void commonSubexprElimination() {
     for (int i = 0; i < count; i++) {
         for (int j = i + 1; j < count; j++) {
-            if (strcmp(code[i].op, code[j].op) == 0 &&
-                strcmp(code[i].op1, code[j].op1) == 0 &&
-                strcmp(code[i].op2, code[j].op2) == 0) {
+            if (strcmp(code[i].op, code[j].op) == 0 && strcmp(code[i].op1, code[j].op1) == 0 && strcmp(code[i].op2, code[j].op2) == 0) {
                 char temp[10];
                 strcpy(temp, code[j].lhs);
                 strcpy(code[j].lhs, code[i].lhs);
